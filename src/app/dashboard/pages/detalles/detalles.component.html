@@ -1,0 +1,28 @@
+@if(detalle()){
+<div class="container mt-3 p-4">
+  <a [routerLink]="['/dashboard/productos']"><i class="bi bi-box-arrow-in-left volver"> Volver</i></a>
+  <div class="row">
+    <div class="d-flex justify-content-end w-100 p-1 iconos">
+      @if(showStar()){
+      <i class="bi bi-star" (click)="status(false)"></i>
+      }@else {
+      <i class="bi bi-star-fill amarillo" (click)="status(true)"></i>
+      }
+    </div>
+    <div class="col-md-4">
+      <img [srcset]="detalle()!.image" class="img-fluid p-4" alt="Product Image">
+    </div>
+    <div class="col-md-8 p-4 star">
+      <h2>{{detalle()!.title}}</h2>
+      <p class="lead">{{detalle()!.price}}</p>
+      <p class="text-muted">{{detalle()!.category}}</p>
+      <p>{{detalle()!.description}}</p>
+      <p>Rating: {{detalle()!.rating.rate}} ({{detalle()!.rating.count}} reviews)
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </p>
+    </div>
+  </div>
+</div>
+}@else {
+<p>Cargando información</p>
+}

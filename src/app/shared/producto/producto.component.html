@@ -1,0 +1,21 @@
+<div class="col">
+    <div class="card h-100">
+        <div class="d-flex justify-content-end w-100 p-1 iconos">
+            @if(showStar()){
+                <i class="bi bi-star" (click)="status(false)"></i>
+            }@else {
+                <i class="bi bi-star-fill amarillo" (click)="status(true)"></i>
+            }
+        </div>
+        <div class="contenedor-img">
+            <img [srcset]="image" class="card-img-top img-fluid">
+        </div>
+        <div class="card-body">
+            <div class="altura">
+                <h5 class="card-title">{{title}}</h5>
+            </div>
+            <p class="card-text">{{formatPrecio()}}</p>
+            <a class="btn btn-primary" [routerLink]="['/dashboard/detalles',id]">Ver detalle</a>
+        </div>
+    </div>
+</div>

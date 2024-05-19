@@ -1,0 +1,23 @@
+.volver{
+    font-size: 20px;
+    cursor: pointer;
+}
+a{
+    color: black;
+}
+a:hover{
+    color: sienna;
+}
+img{
+    max-height: 450px;
+}
+.star i{
+    color: orange;
+}
+.iconos i{
+    font-size: 30px;
+    cursor: pointer;
+}
+.amarillo{
+    color: orange;
+}

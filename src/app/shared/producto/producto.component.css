@@ -1,0 +1,20 @@
+.altura{
+    min-height: 6rem;
+}
+.iconos i{
+    font-size: 22px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.amarillo{
+    color: orange;
+}
+.contenedor-img{
+    height: 250px;
+    padding: 10px;
+}
+.contenedor-img img{
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
