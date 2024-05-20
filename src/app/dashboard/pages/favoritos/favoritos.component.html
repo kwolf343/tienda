@@ -1,16 +1,20 @@
 <div class="container my-5">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        @for (producto of productosService.productos(); track producto.id) {
-            @if(storageService.getList().includes(convertir(producto.id))){
+        @for (producto of productosService.productos(); track $index) {
+            @if(storageService.getList().includes($index)){
                 <app-producto
                 title={{producto.title}}
                 image={{producto.image}}
                 price={{producto.price}}
                 id={{producto.id}}  
+                indice={{$index}}
             />
             }
         }@empty {
             <p>Buscando...</p>
+        }
+        @if(storageService.getList().length==0){
+            <p>No hay productos marcados como favoritos</p>
         }
     </div>
 </div>

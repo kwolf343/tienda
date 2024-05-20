@@ -17,15 +17,16 @@ export default class DetallesComponent {
   private route = inject(ActivatedRoute);
   private productosService = inject(ProductoService);
   storageService = inject(StorageService);
+  pos:number=0;
 
   showStar = signal(true);
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       let id = params['id'];
+      this.pos = Number(id);
       this.showStar.set(!this.storageService.getExists(Number(id)));
     });
-
   }
   
   public detalle = toSignal(
@@ -39,9 +40,9 @@ export default class DetallesComponent {
     const detalleValue = this.detalle();
     if (detalleValue) {
       if (!status) {
-        this.storageService.addElement(Number(detalleValue.id));
+        this.storageService.addElement(this.pos);
       } else {
-        this.storageService.removeElement(Number(detalleValue.id));
+        this.storageService.removeElement(this.pos);
       }
     }
   }

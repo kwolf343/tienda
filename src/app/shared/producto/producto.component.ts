@@ -14,6 +14,7 @@ export class ProductoComponent {
   @Input({ required: true }) title!: string;
   @Input({ required: true }) price!: string;
   @Input({ required: true }) id!: string;
+  @Input({ required: true }) indice!: string;
   @Input() favorito!: string;
 
   
@@ -21,7 +22,7 @@ export class ProductoComponent {
   storageService = inject(StorageService);
 
   ngOnInit(): void {
-    this.showStar.set(!this.storageService.getExists(parseInt(this.id)));
+    this.showStar.set(!this.storageService.getExists(parseInt(this.indice)));
   }
   constructor(){
   }
@@ -29,9 +30,9 @@ export class ProductoComponent {
   status(status:boolean) {
     this.showStar.set(status);
     if(!status){
-      this.storageService.addElement(parseInt(this.id));
+      this.storageService.addElement(parseInt(this.indice));
     }else{
-      this.storageService.removeElement(parseInt(this.id));
+      this.storageService.removeElement(parseInt(this.indice));
     }
   }
 
